@@ -19,18 +19,29 @@
             </li>
         </ul>
         <div>
-            <p data-testid="currentDayOfTheWeek">Loading...</p>
-            <p data-testid="currentUTCTime">Loading...</p>
+            <div class="date-box">
+                <p>Today is </p>
+                <p data-testid="currentDayOfTheWeek"></p>
+            </div>
+            <div class="time-box">
+                <p>Time in milliseconds: </p>
+                <p data-testid="currentUTCTime"></p>
+            </div>
         </div>
     </nav>
     <main>
-        <h1 data-testid="slackUserName">
-            Hi, <br />
-            I am Konee on Slack.
+        <h1>
+            <span>Hi,</span><br />
+            <span>I am</span>
+            <span data-testid="slackUserName">Konee</span>
+            <span>on Slack.</span>
         </h1>
         <div class="hero">
             <img src="./slack dp.jpg" alt="Konee" data-testid="slackDisplayImage" />
-            <p data-testid="myTrack">Track: Frontend</p>
+            <div class="track-box">
+                <p>Track:</p>
+                <p data-testid="myTrack">Frontend</p>
+            </div>
             <p>I think I am enjoying this. Creating a design from space and making it look fairly decent.</p>
         </div>
     </main>

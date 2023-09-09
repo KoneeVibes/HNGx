@@ -41,6 +41,10 @@ span {
     color: #89877a;
 }
 
+span[data-testid="slackUserName"]{
+    color: #fff;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -55,7 +59,7 @@ nav {
         flex-wrap: wrap;
 
         & li {
-            list-style-type: none;
+            list-style-type: none !important;
             text-overflow: ellipsis;
             overflow: hidden;
         }
@@ -64,6 +68,17 @@ nav {
     & div {
         & p {
             color: #89877a;
+        }
+
+        & .time-box,
+        & .date-box {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            & p{
+                margin-block: 0.5rem;
+            }
         }
     }
 }
@@ -79,6 +94,12 @@ nav {
 
     & p {
         font-size: 20px;
+    }
+
+    & .track-box {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
 }
 

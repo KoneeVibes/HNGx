@@ -19,12 +19,12 @@ function computeTime() {
 
 function displayDayOfTheWeek() {
     const date = computeDayOfWeek();
-    return dateBox.textContent = `Today is ${date},`;
+    return dateBox.textContent = date;
 }
 
 function displayTime() {
     const time = computeTime();
-    return timeBox.textContent = `Time in milliseconds: ${time}.`;
+    return timeBox.textContent = time;
 }
 
 displayDayOfTheWeek();
