@@ -1,0 +1,129 @@
+@import url('https://fonts.cdnfonts.com/css/space-grotesk');
+
+html {
+    box-sizing: border-box;
+    margin: 0;
+    height: 100%;
+    background-color: #000;
+    color: #FFF;
+    padding: 2rem;
+}
+
+body {
+    font-family: "Space Grotesk";
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: #89877a;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 54px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+p,
+span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+span {
+    display: inline-block;
+    color: #89877a;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    & ul {
+        display: flex;
+        gap: 3rem;
+        padding: 0;
+        margin-right: 10rem;
+        flex-wrap: wrap;
+
+        & li {
+            list-style-type: none;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+    }
+
+    & div {
+        & p {
+            color: #89877a;
+        }
+    }
+}
+
+.hero {
+    border: 0.5px solid #89877a;
+    border-radius: 12px;
+    padding: 2rem;
+
+    & img {
+        border-radius: inherit;
+    }
+
+    & p {
+        font-size: 20px;
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 0;
+    gap: 2rem;
+    flex-wrap: wrap-reverse;
+
+    & p {
+        color: #89877a;
+    }
+}
+
+@media screen and (max-width: 425px) {
+
+    h1 {
+        font-size: 32px;
+    }
+
+    nav {
+        & ul {
+            gap: 1rem;
+        }
+    }
+
+    .hero {
+        & img {
+            width: 100%;
+        }
+
+        & p {
+            font-size: 16px;
+        }
+    }
+
+    nav {
+        & ul {
+            width: 100%;
+        }
+
+        & div {
+            width: 100%;
+        }
+    }
+}

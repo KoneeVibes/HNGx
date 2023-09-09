@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    <h1>This is the index html page</h1>
+    <nav>
+        <ul>
+            <li>
+                <a href="https://github.com/KoneeVibes/HNGx/tree/main/stage%20one" data-testid=“githubURL”>Github</a>
+            </li>
+            <li>
+                <a href="mailto:umorenofofonono@gmail.com">Contact Me</a>
+            </li>
+        </ul>
+        <div>
+            <p data-testid="currentDayOfTheWeek">Loading...</p>
+            <p data-testid="currentUTCTime">Loading...</p>
+        </div>
+    </nav>
+    <main>
+        <h1 data-testid="slackUserName">
+            Hi, <br />
+            I am Konee on Slack.
+        </h1>
+        <div class="hero">
+            <img src="./slack dp.jpg" alt="Konee" data-testid="slackDisplayImage" />
+            <p data-testid="myTrack">Track: Frontend</p>
+            <p>I think I am enjoying this. Creating a design from space and making it look fairly decent.</p>
+        </div>
+    </main>
+    <footer>
+        <span>
+            Ofofonono Umoren | Copyright &copy; 2023
+        </span>
+        <p>STAGE ONE TASK;</p>
+    </footer>
+    <script src="./script.js"></script>
 </body>
+
 </html>
