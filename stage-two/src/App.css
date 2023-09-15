@@ -1,0 +1,27 @@
+@media screen and (min-width: 0px) {
+  html {
+    box-sizing: border-box;
+    --cardPadding: 2rem;
+    --pagePadding: 1.25rem;
+    --flexGap: 1.25rem;
+    --sectionMargin: 2rem;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  html {
+    --pagePadding: 3rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  html {
+    --flexGap: 2rem;
+    --pagePadding: 6.125rem;
+    --sectionMargin: 2.5rem;
+  }
+}
+
+* {
+  /* outline: 1px solid red; */
+}
