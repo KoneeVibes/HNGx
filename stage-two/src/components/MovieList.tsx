@@ -7,13 +7,33 @@ import { Movie } from "../types/app.type"
 export const MovieList = () => {
 
     const API_KEY = process.env.REACT_APP_API_KEY;
+    const maxMoviesDisplayed = 10;
     const [movies, setMovies] = useState<[]>();
     const [originCountriesAndGenres, setOriginCountriesAndGenres] = useState<Record<number, Record<string, any>>>({});
+    const [startIndex, setStartIndex] = useState(0);
+    const [endIndex, setEndIndex] = useState<number>(maxMoviesDisplayed);
+
+    const updateMovieList = () => {
+        // logic for instance where the endIndex is at or more than the movie.length i.e total available movies and
+        // there is no batch of maxMoviesDisplayed behind the queue.
+        if (movies && endIndex >= movies?.length && startIndex === 0) return //update button to render "nothing less or more, lol"
+
+        if (movies && endIndex >= movies?.length) {
+            // handle instance where the end index (which is always a multiple of maxMoviesDisplayed)
+            // is more than the movies array length. That's absolutely a see-previous condition;
+            setStartIndex(startIndex - maxMoviesDisplayed);
+            setEndIndex(startIndex);
+        } else {
+            // else, you would need to see more.
+            setStartIndex(startIndex + maxMoviesDisplayed);
+            setEndIndex(endIndex + maxMoviesDisplayed);
+        }
+    }
 
     useEffect(() => {
         const getTrendingMovies = async () => {
             try {
-                const fetchMovies = await fetch(`https://api.themoviedb.org/3/trending/movie/day?language=en-US&api_key=${API_KEY}`, {
+                const fetchMovies = await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&api_key=${API_KEY}`, {
                     method: 'GET',
                     headers: {
                         accept: 'application/json',
@@ -21,7 +41,7 @@ export const MovieList = () => {
                     }
                 });
                 const res = await fetchMovies.json();
-                setMovies(res.results.slice(0, 10));
+                setMovies(res.results);
             } catch (error) {
                 console.log("There is an error");
             }
@@ -89,7 +109,12 @@ export const MovieList = () => {
                     Featured Movie
                 </Typography>
                 <Button
-                    endIcon={<ForwardIcon />}
+                    startIcon={
+                        (startIndex !== 0 || endIndex !== maxMoviesDisplayed) ? <ForwardIcon style={{ transform: "rotate(-180deg)" }} /> : ""
+                    }
+                    endIcon={
+                        (startIndex !== 0 || endIndex !== maxMoviesDisplayed) ? "" : <ForwardIcon />
+                    }
                     sx={{
                         fontFamily: "DM Sans",
                         fontWeight: 400,
@@ -98,15 +123,17 @@ export const MovieList = () => {
                         color: "var(--rose-700, #BE123C)",
                         textTransform: "initial"
                     }}
+                    onClick={updateMovieList}
                 >
-                    See more
+                    {/* you want to see previous if there is still a batch of maxMoviesDisplayed behind the queue */}
+                    {(startIndex !== 0 || endIndex !== maxMoviesDisplayed) ? "See previous" : "See more"}
                 </Button>
             </Box>
             <Grid
                 container
                 spacing={{ mobile: 2.5, tablet: 10 }}
             >
-                {movies?.map((movie: Movie, i) => {
+                {movies?.slice(startIndex, endIndex).map((movie: Movie, i) => {
                     return (
                         <Grid
                             item

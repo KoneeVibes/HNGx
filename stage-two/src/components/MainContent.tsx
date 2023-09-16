@@ -298,14 +298,15 @@ export const MainContent: React.FC<MainContentProps> = ({ position, right, id })
             <Box
                 display={"flex"}
                 gap={"var(--flexGap)"}
-                flexDirection={{ mobile: "column", tablet: "row" }}
+                flexWrap={"wrap"}
             >
                 <Box
-                    flex={0.6}
+                    flex={{ tablet: 0.6 }}
                     display={"flex"}
                     flexDirection={"column"}
                     justifyContent={"space-between"}
                     gap={"1rem"}
+                    overflow={"hidden"}
                 >
                     <Typography
                         data-testid="movie-overview"
@@ -345,7 +346,7 @@ export const MainContent: React.FC<MainContentProps> = ({ position, right, id })
                             fontSize={"inherit"}
                             color={"#BE123C"}
                         >
-                            lorem ipsum
+                            {` ${"Lorem ipsum dolor sit"}`}
                         </Typography>
                     </Typography>
                     <Typography
@@ -372,7 +373,7 @@ export const MainContent: React.FC<MainContentProps> = ({ position, right, id })
                             fontSize={"inherit"}
                             color={"#BE123C"}
                         >
-                            lorem ipsum
+                            {` ${"Lorem ipsum dolor sit"}`}
                         </Typography>
                     </Typography>
                     <Typography
@@ -399,13 +400,12 @@ export const MainContent: React.FC<MainContentProps> = ({ position, right, id })
                             fontSize={"inherit"}
                             color={"#BE123C"}
                         >
-                            lorem ipsum
+                            {` ${"Lorem ipsum dolor sit"}`}
                         </Typography>
                     </Typography>
                     <Box
                         overflow={"hidden"}
                         display={"flex"}
-                    // flexDirection={""}
                     >
                         <Button
                             disableElevation
@@ -464,7 +464,7 @@ export const MainContent: React.FC<MainContentProps> = ({ position, right, id })
                     display={"flex"}
                     flexDirection={"column"}
                     gap={"1rem"}
-                    flex={0.4}
+                    flex={{ tablet: 0.4 }}
                     overflow={"hidden"}
                 >
                     <Button

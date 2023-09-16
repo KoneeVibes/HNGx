@@ -32,5 +32,5 @@ displayTime();
 
 setInterval(function () {
     displayTime();
-    computeDayOfWeek()
+    computeDayOfWeek();
 }, 1000);

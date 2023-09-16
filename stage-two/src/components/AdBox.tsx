@@ -21,7 +21,7 @@ export const AdBox: React.FC<AdBoxProps> = ({ leadText, subText, buttonText, min
                 fontFamily={"Poppins"}
                 fontWeight={600}
                 lineHeight={"normal"}
-                fontSize={{ laptop: "15px" }}
+                fontSize={"15px"}
                 sx={{
                     textWrap: "wrap"
                 }}

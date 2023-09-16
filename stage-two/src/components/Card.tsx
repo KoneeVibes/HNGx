@@ -20,6 +20,11 @@ export const Card: React.FC<CardProps> = ({ filePath, title, originCountry, just
         fetchConfig();
     }, []);
 
+    const saveAsFavorite: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+        event.stopPropagation();
+        navigate("#");
+    }
+
     return (
         <Box
             data-testid="movie-card"
@@ -44,7 +49,7 @@ export const Card: React.FC<CardProps> = ({ filePath, title, originCountry, just
                 onClick={() => navigate(`/movies/${id}`)}
             >
                 <IconButton
-                    onClick={() => navigate("#")}
+                    onClick={saveAsFavorite}
                     sx={{
                         backgroundColor: "rgba(243, 244, 246, 0.50)",
                         float: "right",

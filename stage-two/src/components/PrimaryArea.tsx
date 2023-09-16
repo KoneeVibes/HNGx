@@ -23,7 +23,6 @@ export const PrimaryArea: React.FC<PrimaryAreaProps> = ({ id }) => {
             // since the sidebar will always be returned to the dom.
             marginLeft={`${sidebarWidth}px`}
             padding={"var(--cardPadding)"}
-            flex={1}
         >
             <IconButton
                 title="toggle menu button"
