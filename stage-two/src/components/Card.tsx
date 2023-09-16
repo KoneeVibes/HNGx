@@ -7,7 +7,7 @@ import { RatingBox } from "./RatingBox"
 import { useNavigate } from "react-router-dom"
 import { ImageConfig } from "../types/config.type"
 
-export const Card: React.FC<CardProps> = ({ filePath, title, justifyContent, fraction, percentage, color, date, id }) => {
+export const Card: React.FC<CardProps> = ({ filePath, title, originCountry, justifyContent, fraction, percentage, color, date, genres, id }) => {
 
     const [imageConfig, setImageConfig] = useState<ImageConfig>();
     const navigate = useNavigate();
@@ -23,6 +23,7 @@ export const Card: React.FC<CardProps> = ({ filePath, title, justifyContent, fra
     return (
         <Box
             data-testid="movie-card"
+            overflow={"hidden"}
         >
             <Box
                 data-testid="movie-poster"
@@ -43,6 +44,7 @@ export const Card: React.FC<CardProps> = ({ filePath, title, justifyContent, fra
                 onClick={() => navigate(`/movies/${id}`)}
             >
                 <IconButton
+                    onClick={() => navigate("#")}
                     sx={{
                         backgroundColor: "rgba(243, 244, 246, 0.50)",
                         float: "right",
@@ -53,7 +55,7 @@ export const Card: React.FC<CardProps> = ({ filePath, title, justifyContent, fra
             </Box>
             <Box>
                 <Typography
-                    data-testid="movie-release-date"
+                    variant="subtitle1"
                     color={"var(--gray-400, #9CA3AF)"}
                     fontFamily={"DM Sans"}
                     fontWeight={700}
@@ -63,15 +65,26 @@ export const Card: React.FC<CardProps> = ({ filePath, title, justifyContent, fra
                         marginBlock: "0.5rem"
                     }}
                 >
-                    {`USA, ${date}`}
+                    <Typography
+                        component={"span"}
+                    >
+                        {originCountry}
+                    </Typography>
+                    <Typography
+                        component={"span"}
+                        data-testid="movie-release-date"
+                    >
+                        {date}
+                    </Typography>
                 </Typography>
                 <Typography
+                    variant="h2"
                     data-testid="movie-title"
                     color={"var(--gray-900, #111827)"}
                     fontFamily={"DM Sans"}
                     fontWeight={700}
                     lineHeight={"normal"}
-                    fontSize={{ laptop: "18px" }}
+                    fontSize={{ mobile: "1rem", laptop: "18px" }}
                     sx={{
                         marginBlock: "0.5rem"
                     }}
@@ -85,6 +98,20 @@ export const Card: React.FC<CardProps> = ({ filePath, title, justifyContent, fra
                     percentage={percentage}
                     color={color}
                 />
+                <Typography
+                    variant="subtitle1"
+                    fontFamily={"DM Sans"}
+                    fontWeight={700}
+                    lineHeight={"normal"}
+                    color={"var(--gray-400, #9CA3AF)"}
+                    fontSize={{ mobile: "12px" }}
+                    sx={{
+                        marginBlock: "0.5rem",
+                        textWrap: "wrap"
+                    }}
+                >
+                    {genres}
+                </Typography>
             </Box>
         </Box>
     )

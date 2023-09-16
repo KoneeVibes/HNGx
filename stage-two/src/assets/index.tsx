@@ -20,6 +20,11 @@ export { ReactComponent as FacebookIcon } from "./facebookIcon.svg";
 export { ReactComponent as InstagramIcon } from "./instagramIcon.svg";
 export { ReactComponent as TwitterIcon } from "./twitterIcon.svg";
 export { ReactComponent as YoutubeIcon } from "./youtubeIcon.svg";
+export { ReactComponent as WatchIcon } from "./watchIcon.svg";
+export { ReactComponent as FavoriteIcon } from "./favoriteIcon.svg";
+export { ReactComponent as ShowtimesIcon } from "./showtimes.svg";
+export { ReactComponent as OptionsIcon } from "./options.svg";
+export { ReactComponent as DropdownIcon } from "./dropdownIcon.svg";
 export const sidebarIcons = [
     {
         icon: <HomeIcon />,

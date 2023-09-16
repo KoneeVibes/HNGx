@@ -9,6 +9,8 @@ export type CardProps = {
     date: string
     filePath: string
     title: string
+    originCountry: string | undefined
+    genres: string
     id: number
 } & RatingBoxProps;
 
@@ -51,4 +53,5 @@ export type AdBoxProps = {
     subText: string
     buttonText: string
     minimizeSb: boolean
+    display: "none" | "unset"
 }

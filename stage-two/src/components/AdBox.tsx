@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material"
 import { AdBoxProps } from "../types/app.type"
 
-export const AdBox: React.FC<AdBoxProps> = ({ leadText, subText, buttonText, minimizeSb }) => {
+export const AdBox: React.FC<AdBoxProps> = ({ leadText, subText, buttonText, minimizeSb, display }) => {
     return (
         <Box
             padding={"calc(var(--cardPadding) * 2) var(--cardPadding) var(--cardPadding)"}
@@ -45,6 +45,7 @@ export const AdBox: React.FC<AdBoxProps> = ({ leadText, subText, buttonText, min
                 disableElevation
                 variant="contained"
                 sx={{
+                    display: { display },
                     margin: "0.5rem 0",
                     color: "#BE123C",
                     fontFamily: "Poppins",

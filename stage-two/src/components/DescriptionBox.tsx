@@ -10,7 +10,7 @@ export const DescriptionBox: React.FC<{}> = () => {
                 laptop: "calc(var(--cardPadding) * 4) 0"
             }}
             overflow={"hidden"}
-            width={{ desktop: "50%" }}
+            width={{ desktop: "40%" }}
         >
             <Typography
                 variant="h1"
@@ -39,7 +39,7 @@ export const DescriptionBox: React.FC<{}> = () => {
                 lineHeight={"1.3"}
                 fontSize={"14px"}
                 sx={{
-                    marginBlockEnd: "1rem",
+                    marginBlock: "1rem 1.5rem",
                     textWrap: "balance"
                 }}
             >

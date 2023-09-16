@@ -126,6 +126,7 @@ export const Sidebar: React.FC<{}> = () => {
                     subText="50k people are playing now"
                     buttonText="Start playing"
                     minimizeSb={minimizeSb}
+                    display={minimizeSb ? "none" : "unset"}
                 />
                 <Box
                     className={sidebarIcons[arrLength - 1].name}

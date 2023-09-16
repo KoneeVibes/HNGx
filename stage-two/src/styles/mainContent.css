@@ -1,7 +1,12 @@
 .Movies {
     background-color: rgba(190, 18, 60, 0.10);
     border-right: 6px solid #BE123C;
+
     & p {
         color: #BE123C !important;
     }
+}
+
+fieldset {
+    border: none !important;
 }

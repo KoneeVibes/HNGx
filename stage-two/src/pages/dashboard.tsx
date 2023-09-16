@@ -12,11 +12,6 @@ export const Dashboard = () => {
             <Container
                 maxWidth={false}
                 disableGutters
-                // used this position value since it doesn't destroy anything and it makees sense for the
-                // positioned absolute child.
-                sx={{
-                    display: "flex"
-                }}
             >
                 <Sidebar />
                 <PrimaryArea

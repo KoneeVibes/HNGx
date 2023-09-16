@@ -29,7 +29,7 @@ export const PrimaryArea: React.FC<PrimaryAreaProps> = ({ id }) => {
                 title="toggle menu button"
                 onClick={() => setShowMenu(!showMenu)}
                 sx={{
-                    display: !screenSizesBelowTablet ? "none" : "block",
+                    display: !screenSizesBelowTablet ? "none" : "inline-flex",
                     backgroundColor: "var(--rose-700, #BE123C)",
                     color: "#FFF",
                     borderRadius: "8px",

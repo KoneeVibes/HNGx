@@ -8,6 +8,7 @@ export const MovieList = () => {
 
     const API_KEY = process.env.REACT_APP_API_KEY;
     const [movies, setMovies] = useState<[]>();
+    const [originCountriesAndGenres, setOriginCountriesAndGenres] = useState<Record<number, Record<string, any>>>({});
 
     useEffect(() => {
         const getTrendingMovies = async () => {
@@ -27,6 +28,42 @@ export const MovieList = () => {
         }
         getTrendingMovies();
     }, [API_KEY]);
+
+    useEffect(() => {
+        const getOriginCountryAndGenres = async (id: number) => {
+            try {
+                const fetchMovie = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US&api_key=${API_KEY}`, {
+                    method: 'GET',
+                    headers: {
+                        accept: 'application/json',
+                        Authorization: `Bearer ${API_KEY}`
+                    }
+                });
+
+                const res = await fetchMovie.json();
+                if (!res.id) return console.log("Server cannot send a valid response", res);
+
+                setOriginCountriesAndGenres((prev) => ({
+                    ...prev,
+                    [id]: {
+                        originCountry: res.production_countries[0]?.iso_3166_1 || "Nigeria",
+                        genres: res.genres?.map((genre: Record<string, any>) => genre.name) || ""
+                    }
+                }));
+
+            } catch (error) {
+                console.log("code broken");
+            }
+        }
+
+        movies?.forEach((movie: Movie) => {
+            if (!originCountriesAndGenres[movie.id]) {
+                getOriginCountryAndGenres(movie.id);
+            }
+        });
+
+    }, [API_KEY, movies, originCountriesAndGenres]);
+
 
     return (
         <Box
@@ -67,7 +104,7 @@ export const MovieList = () => {
             </Box>
             <Grid
                 container
-                spacing={{mobile: 2.5, tablet: 10 }}
+                spacing={{ mobile: 2.5, tablet: 10 }}
             >
                 {movies?.map((movie: Movie, i) => {
                     return (
@@ -84,6 +121,8 @@ export const MovieList = () => {
                                 id={movie.id}
                                 filePath={movie.poster_path}
                                 title={movie.title}
+                                originCountry={`${originCountriesAndGenres[movie.id]?.originCountry || "Loading..."}, `}
+                                genres={originCountriesAndGenres[movie.id]?.genres.join(", ") || "Loading"}
                                 justifyContent="space-between"
                                 date={movie.release_date}
                                 fraction={Math.round((movie.vote_average * 10) * 10) / 10}

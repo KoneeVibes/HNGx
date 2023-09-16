@@ -8,7 +8,8 @@ export const Navbar: React.FC<{}> = () => {
             alignItems={{ mobile: "stretch", tablet: "center" }}
             justifyContent={"space-between"}
             gap={"var(--flexGap)"}
-            flexDirection={{ mobile: "column", tablet: "row" }}
+            // flexDirection={{ mobile: "column", tablet: "row" }}
+            flexWrap={"wrap"}
             sx={{
                 paddingTop: `var(--cardPadding)`
             }}
@@ -55,7 +56,7 @@ export const Navbar: React.FC<{}> = () => {
                     lineHeight: "24px",
                     fontSize: { mobile: "12px", laptop: "16px" },
                     color: "var(--white, #FFF)",
-                    width: { tablet: "40%" },
+                    width: { mobile: "stretch", tablet: "40%" },
                     order: { mobile: 3, tablet: "unset" }
                 }}
             />
@@ -81,6 +82,7 @@ export const Navbar: React.FC<{}> = () => {
                 </Typography>
                 <IconButton
                     sx={{
+                        display: { mobile: "none", tablet: "inline-flex" },
                         backgroundColor: "var(--rose-700, #BE123C)",
                         ":hover": {
                             backgroundColor: "var(--rose-700, #BE123C)",
