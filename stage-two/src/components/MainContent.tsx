@@ -345,7 +345,7 @@ export const MainContent: React.FC<MainContentProps> = ({ position, right, id })
                             fontSize={"inherit"}
                             color={"#BE123C"}
                         >
-                            lorem ipsum
+                            `   ${"loading..."}`
                         </Typography>
                     </Typography>
                     <Typography
@@ -372,7 +372,7 @@ export const MainContent: React.FC<MainContentProps> = ({ position, right, id })
                             fontSize={"inherit"}
                             color={"#BE123C"}
                         >
-                            lorem ipsum
+                            `   ${"loading..."}`
                         </Typography>
                     </Typography>
                     <Typography
@@ -399,7 +399,7 @@ export const MainContent: React.FC<MainContentProps> = ({ position, right, id })
                             fontSize={"inherit"}
                             color={"#BE123C"}
                         >
-                            lorem ipsum
+                            `   ${"loading..."}`
                         </Typography>
                     </Typography>
                     <Box
