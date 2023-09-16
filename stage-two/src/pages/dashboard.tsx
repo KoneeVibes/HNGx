@@ -18,6 +18,6 @@ export const Dashboard = () => {
                     id={id}
                 />
             </Container>
-        </DashboardContextProvider>
+        </DashboardContextProvider >
     )
 }

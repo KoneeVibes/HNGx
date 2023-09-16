@@ -438,6 +438,7 @@ export const MainContent: React.FC<MainContentProps> = ({ position, right, id })
                             id="awardNominations"
                             value={awardNominations}
                             onChange={handleChange}
+                            autoFocus={false}
                             sx={{
                                 width: "fill-available",
                                 backgroundColor: "rgba(255, 255, 255, 0.80)",

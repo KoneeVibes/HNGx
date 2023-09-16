@@ -27,7 +27,6 @@ export const Card: React.FC<CardProps> = ({ filePath, title, originCountry, just
 
     return (
         <Box
-            data-testid="movie-card"
             overflow={"hidden"}
         >
             <Box

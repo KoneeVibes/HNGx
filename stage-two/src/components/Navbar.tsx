@@ -59,6 +59,7 @@ export const Navbar: React.FC<{}> = () => {
                     width: { mobile: "stretch", tablet: "40%" },
                     order: { mobile: 3, tablet: "unset" }
                 }}
+                
             />
 
             {/* sign-in button area */}

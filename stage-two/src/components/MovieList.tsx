@@ -142,6 +142,7 @@ export const MovieList = () => {
                             miniTablet={6}
                             tablet={4}
                             desktop={3}
+                            data-testid="movie-card"
                         >
                             <Card
                                 key={i}
