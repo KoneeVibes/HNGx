@@ -1,14 +1,17 @@
 import { Box, Button, Grid, Typography } from "@mui/material"
 import { Card } from "./Card"
 import { ForwardIcon } from "../assets"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { Movie } from "../types/app.type"
+import { LandingPageContext } from "../context/landingPageContext"
+import getTopRatedMovies from "../configs/topRatedMovies"
 
 export const MovieList = () => {
 
     const API_KEY = process.env.REACT_APP_API_KEY;
     const maxMoviesDisplayed = 10;
-    const [movies, setMovies] = useState<[]>();
+    const { movies, setMovies } = useContext(LandingPageContext);
+    // const [movies, setMovies] = useState<[]>();
     const [originCountriesAndGenres, setOriginCountriesAndGenres] = useState<Record<number, Record<string, any>>>({});
     const [startIndex, setStartIndex] = useState(0);
     const [endIndex, setEndIndex] = useState<number>(maxMoviesDisplayed);
@@ -31,23 +34,10 @@ export const MovieList = () => {
     }
 
     useEffect(() => {
-        const getTrendingMovies = async () => {
-            try {
-                const fetchMovies = await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&api_key=${API_KEY}`, {
-                    method: 'GET',
-                    headers: {
-                        accept: 'application/json',
-                        Authorization: `Bearer ${API_KEY}`
-                    }
-                });
-                const res = await fetchMovies.json();
-                setMovies(res.results);
-            } catch (error) {
-                console.log("There is an error");
-            }
-        }
-        getTrendingMovies();
-    }, [API_KEY]);
+        getTopRatedMovies()
+            .then((topRatedMovies) => setMovies(topRatedMovies))
+            .catch((err) => console.log(err));
+    }, [API_KEY, setMovies]);
 
     useEffect(() => {
         const getOriginCountryAndGenres = async (id: number) => {

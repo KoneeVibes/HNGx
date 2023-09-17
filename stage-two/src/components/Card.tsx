@@ -1,7 +1,7 @@
 import { Box, IconButton, Typography } from "@mui/material"
 import { HeartIcon } from "../assets"
 import { CardProps } from "../types/app.type"
-import getImagesConfig from "../configs/tmdb"
+import getImagesConfig from "../configs/imagesConfig"
 import { useEffect, useState } from "react"
 import { RatingBox } from "./RatingBox"
 import { useNavigate } from "react-router-dom"
@@ -66,17 +66,34 @@ export const Card: React.FC<CardProps> = ({ filePath, title, originCountry, just
                     lineHeight={"normal"}
                     fontSize={{ laptop: "12px" }}
                     sx={{
-                        marginBlock: "0.5rem"
+                        marginBlock: "0.5rem",
+                        textWrap: "balance"
                     }}
                 >
                     <Typography
                         component={"span"}
+                        fontFamily={"inherit"}
+                        fontWeight={"inherit"}
+                        lineHeight={"inherit"}
+                        fontSize={"inherit"}
+                        sx={{
+                            marginBlock: "inherit",
+                            textWrap: "inherit"
+                        }}
                     >
                         {originCountry}
                     </Typography>
                     <Typography
-                        component={"span"}
                         data-testid="movie-release-date"
+                        component={"span"}
+                        fontFamily={"inherit"}
+                        fontWeight={"inherit"}
+                        lineHeight={"inherit"}
+                        fontSize={"inherit"}
+                        sx={{
+                            marginBlock: "inherit",
+                            textWrap: "inherit"
+                        }}
                     >
                         {date}
                     </Typography>
@@ -90,7 +107,9 @@ export const Card: React.FC<CardProps> = ({ filePath, title, originCountry, just
                     lineHeight={"normal"}
                     fontSize={{ mobile: "1rem", laptop: "18px" }}
                     sx={{
-                        marginBlock: "0.5rem"
+                        marginBlock: "0.5rem",
+                        textWrap: "balance",
+                        cursor: "pointer",
                     }}
                     onClick={() => navigate(`/movies/${id}`)}
                 >

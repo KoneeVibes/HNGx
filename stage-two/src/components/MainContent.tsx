@@ -1,7 +1,7 @@
 import { Box, Button, Chip, Divider, IconButton, MenuItem, Select, SelectChangeEvent, Stack, Typography } from "@mui/material";
 import { MainContentProps } from "../types/app.type";
 import { useEffect, useState } from "react";
-import getImagesConfig from "../configs/tmdb";
+import getImagesConfig from "../configs/imagesConfig";
 import { ImageConfig } from "../types/config.type";
 import "../styles/mainContent.css";
 import { FavoriteIcon, OptionsIcon, ShowtimesIcon, WatchIcon } from "../assets";
@@ -438,7 +438,6 @@ export const MainContent: React.FC<MainContentProps> = ({ position, right, id })
                             id="awardNominations"
                             value={awardNominations}
                             onChange={handleChange}
-                            autoFocus={false}
                             sx={{
                                 width: "fill-available",
                                 backgroundColor: "rgba(255, 255, 255, 0.80)",

@@ -1,14 +1,42 @@
 import { Avatar, Box, IconButton, Input, InputAdornment, Typography } from "@mui/material";
 import { Logo, MenuButton, SearchIcon } from "../assets";
+import { useContext } from "react";
+import { LandingPageContext } from "../context/landingPageContext";
+import getTopRatedMovies from "../configs/topRatedMovies";
 
 export const Navbar: React.FC<{}> = () => {
+    const API_KEY = process.env.REACT_APP_API_KEY;
+    const { setMovies } = useContext(LandingPageContext);
+
+    const searchForMovies: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement> | undefined = async (e) => {
+        try {
+            if (!e.target.value) {
+                // handle instance where the text area is cleared
+                getTopRatedMovies()
+                    .then((topRatedMovies) => setMovies(topRatedMovies))
+                    .catch((err) => console.log(err));
+            } else {
+                const fetchMovies = await fetch(`https://api.themoviedb.org/3/search/movie?query=${e.target.value}&include_adult=false&language=en-US&page=1&api_key=${API_KEY}`, {
+                    method: 'GET',
+                    headers: {
+                        accept: 'application/json',
+                        Authorization: `Bearer ${API_KEY}`
+                    }
+                });
+                const res = await fetchMovies.json();
+                setMovies(res.results);
+            }
+        } catch (error) {
+            console.log("There is an error");
+        }
+    }
+
     return (
         <Box
             display={"flex"}
             alignItems={{ mobile: "stretch", tablet: "center" }}
             justifyContent={"space-between"}
             gap={"var(--flexGap)"}
-            // flexDirection={{ mobile: "column", tablet: "row" }}
             flexWrap={"wrap"}
             sx={{
                 paddingTop: `var(--cardPadding)`
@@ -59,7 +87,7 @@ export const Navbar: React.FC<{}> = () => {
                     width: { mobile: "stretch", tablet: "40%" },
                     order: { mobile: 3, tablet: "unset" }
                 }}
-                
+                onChange={searchForMovies}
             />
 
             {/* sign-in button area */}
