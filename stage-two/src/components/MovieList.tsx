@@ -11,7 +11,6 @@ export const MovieList = () => {
     const API_KEY = process.env.REACT_APP_API_KEY;
     const maxMoviesDisplayed = 10;
     const { movies, setMovies } = useContext(LandingPageContext);
-    // const [movies, setMovies] = useState<[]>();
     const [originCountriesAndGenres, setOriginCountriesAndGenres] = useState<Record<number, Record<string, any>>>({});
     const [startIndex, setStartIndex] = useState(0);
     const [endIndex, setEndIndex] = useState<number>(maxMoviesDisplayed);
