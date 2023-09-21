@@ -1,6 +1,5 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home } from './pages/home';
 import { Gallery } from './components/gallery';
 
 function App() {
@@ -8,7 +7,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Gallery />}></Route>
-        {/* <Route></Route> */}
       </Routes>
     </BrowserRouter>
   );

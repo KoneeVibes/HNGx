@@ -20,7 +20,7 @@ export const Gallery = () => {
                 id="items"
                 boxesPerRow={4}
                 rowHeight={370}
-                style={{ height: "1200px" }}
+                style={{ height: "1200px", maxWidth: "90%", gap:"4rem" }}
             >
                 {items.map((item, i) => (
                     <GridItem
