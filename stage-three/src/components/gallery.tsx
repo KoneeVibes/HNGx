@@ -1,71 +1,42 @@
-import { useState } from "react";
-import { images } from "../assets";
-import { DragDropContext, Draggable, Droppable, OnDragEndResponder } from "react-beautiful-dnd";
+import { useState } from 'react';
+import { GridContextProvider, GridItem, swap } from 'react-grid-dnd';
+import { images } from '../assets';
+import { StrictModeDropzone } from '../config/dropzone';
 
 export const Gallery = () => {
 
-    const [characters, updateCharacters] = useState(images);
+    type OnChange = (sourceId: string, sourceIndex: number, targetIndex: number, targetId?: string) => void;
 
-    const handleOnDragEnd: OnDragEndResponder = (result) => {
-        if (!result.destination) return;
+    const [items, setItems] = useState(images);
 
-        const items = Array.from(characters);
-        const [reorderedItem] = items.splice(result.source.index, 1);
-        items.splice(result.destination.index, 0, reorderedItem);
-
-        updateCharacters(items);
+    const onChange: OnChange = (sourceId, sourceIndex, targetIndex) => {
+        const nextState = swap(items, sourceIndex, targetIndex);
+        setItems(nextState);
     }
 
     return (
-        <div>
-            <h1>This is it</h1>
-            <DragDropContext onDragEnd={handleOnDragEnd}>
-                <Droppable droppableId="images">
-                    {(provided) => (
-                        <ul
-                            {...provided.droppableProps}
-                            ref={provided.innerRef}
+        <GridContextProvider onChange={onChange}>
+            <StrictModeDropzone
+                id="items"
+                boxesPerRow={4}
+                rowHeight={370}
+                style={{ height: "1200px" }}
+            >
+                {items.map((item, i) => (
+                    <GridItem
+                        key={item.id}
+                    >
+                        <img
                             style={{
-                                display: "flex",
-                                flexWrap: "wrap",
-                                padding: 0,
+                                width: "100%",
+                                height: "100%"
                             }}
-                            className="images"
-                        >
-                            {
-                                images.map(({ id, name, thumb }, index) => {
-                                    return (
-                                        <Draggable
-                                            key={id}
-                                            draggableId={id}
-                                            index={index}
-                                        >
-                                            {(provided) => (
-                                                <li
-                                                    style={{
-                                                        margin: "0 2rem 0"
-                                                    }}
-                                                    {...provided.draggableProps}
-                                                    {...provided.dragHandleProps}
-                                                    ref={provided.innerRef}
-                                                >
-                                                    <div>
-                                                        <img
-                                                            src={thumb} alt="bird from Rob Potter on unsplash"
-                                                            style={{ width: "250px", height: "370px" }}
-                                                        />
-                                                    </div>
-                                                </li>
-                                            )}
-                                        </Draggable>
-                                    )
-                                })
-                            }
-                            {provided.placeholder}
-                        </ul>
-                    )}
-                </Droppable>
-            </DragDropContext>
-        </div>
+                            src={item.thumb}
+                            alt={item.name}
+                        />
+                    </GridItem>
+                ))}
+            </StrictModeDropzone>
+        </GridContextProvider>
     )
 }
