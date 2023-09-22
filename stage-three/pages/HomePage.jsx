@@ -200,7 +200,7 @@ const HomePage = () => {
             <div className="nav_middle_inner">
               <input
                 type="text"
-                placeholder="Enter Image Index"
+                placeholder="Enter Image Tag or Index"
                 value={searchQuery}
                 onChange={handleSearchInputChange}
               />
