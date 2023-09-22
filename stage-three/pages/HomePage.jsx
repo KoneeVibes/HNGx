@@ -13,69 +13,69 @@ const images = [
     id: 1,
     src: "/images/one.jpg",
     alt: "First Image",
-    tag: "One",
+    tag: "Owl",
   },
   {
     id: 2,
     src: "/images/two.jpg",
     alt: "Second Image",
-    tag: "Two",
+    tag: "Parrot",
   },
   {
     id: 3,
     src: "/images/three.jpg",
     alt: "Third Image",
-    tag: "Three",
+    tag: "Gorilla",
   },
 
-  { id: 4, src: "/images/four.jpg", alt: "Fourth Image", tag: "four" },
+  { id: 4, src: "/images/four.jpg", alt: "Fourth Image", tag: "Gorilla" },
   {
     id: 5,
     src: "/images/five.jpg",
     alt: "Fifth Image",
-    tag: "Five",
+    tag: "Bird",
   },
   {
     id: 6,
     src: "/images/six.jpg",
     alt: "Sixth Image",
-    tag: "Six",
+    tag: "Gorilla",
   },
   {
     id: 7,
     src: "/images/seven.jpg",
     alt: "Seventh Image",
-    tag: "Seven",
+    tag: "Bird",
   },
   {
     id: 8,
     src: "/images/eight.jpg",
     alt: "Eight Image",
-    tag: "eight",
+    tag: "Parrot",
   },
   {
     id: 9,
     src: "/images/nine.jpg",
     alt: "Ninth Image",
-    tag: "Nine",
+    tag: "Bird",
   },
   {
     id: 10,
     src: "/images/ten.jpg",
     alt: "Tenth Image",
-    tag: "Ten",
+    tag: "Bird",
   },
   {
     id: 11,
     src: "/images/eleven.jpg",
     alt: "Eleventh Image",
-    tag: "Eleven",
+    tag: "Owl",
   },
   {
     id: 12,
     src: "/images/twelve.jpg",
     alt: "Twelveth Image",
-    tag: "Twelve",
+    tag: "Bird",
   },
 ];
 
@@ -200,7 +200,7 @@ const HomePage = () => {
             <div className="nav_middle_inner">
               <input
                 type="text"
-                placeholder="Enter Image Tag or Index"
+                placeholder="Enter Image Tag"
                 value={searchQuery}
                 onChange={handleSearchInputChange}
               />
@@ -273,6 +273,7 @@ const HomePage = () => {
                   >
                     {/* MOBILE CARD */}
                     <div className="hero_image_card_inner mobile_card">
+                      <p style={{ paddingLeft: "0.5rem" }}>{image.tag}</p>
                       <Image
                         width={500}
                         height={500}
@@ -283,6 +284,7 @@ const HomePage = () => {
 
                     {/*  DESKTOP CARD */}
                     <div className="hero_image_card_inner desktop_card">
+                      <p style={{ paddingLeft: "0.5rem" }}>{image.tag}</p>
                       <Image
                         width={500}
                         height={500}

@@ -96,9 +96,9 @@ const Login = ({ onLogin }) => {
 
           <div className="img_sec">
             <Image
-              width={2000}
+              width={200}
               height={2000}
-              src="/images/signin_bg.png"
+              src="/images/one.jpg"
               alt="signin_bg"
               className="img_signin"
             />
