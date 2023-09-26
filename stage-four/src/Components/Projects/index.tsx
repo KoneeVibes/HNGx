@@ -138,11 +138,15 @@ export const Projects: React.FC<{}> = () => {
                 <Box>
                     <Typography
                         variant="h3"
+                        component={"a"}
+                        href="https://github.com/KoneeVibes"
                         fontFamily={"Fractul"}
                         fontWeight={500}
                         lineHeight={1.43}
                         sx={{
-                            fontSize: { mobile: "7px", tablet: "16px", desktop: "35px" }
+                            fontSize: { mobile: "7px", tablet: "16px", desktop: "35px" },
+                            textDecoration: "none",
+                            color: "#000"
                         }}
                     >
                         Want to see <span className="more">more?</span>
