@@ -1,0 +1,7 @@
+.serviceContainer:hover{
+    background-color: #F5F3F3;
+}
+
+.serviceContainer:hover p{
+    color: #010101;
+}

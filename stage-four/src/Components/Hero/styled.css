@@ -1,0 +1,107 @@
+@media screen and (min-width: 0px) {
+    .letterH {
+        font-family: "ArianeCoachella";
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 29.5px;
+    }
+
+    .hello {
+        font-family: "Fractul";
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    .myName,
+    .letterA {
+        font-family: "Fractul";
+        font-weight: 500;
+        font-size: 34px;
+        line-height: 40.8px;
+    }
+
+    .myProfession {
+        font-family: "ArianeCoachella";
+        font-style: italic;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 28.32px;
+        margin-left: 0.5rem;
+    }
+
+    .headshotBox:hover .headshot {
+        backface-visibility: visible !important;
+        animation: shake 2s ease-in-out;
+    }
+
+    @keyframes shake {
+        30% {
+            transform: scale(1.1);
+        }
+
+        40%,
+        60% {
+            transform: rotate(-20deg) scale(1.1);
+        }
+
+        50% {
+            transform: rotate(20deg) scale(1.1);
+        }
+
+        70% {
+            transform: rotate(0deg) scale(1.1);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+}
+
+@media screen and (min-width: 425px) {
+    .letterH {
+        font-size: 35px;
+        line-height: 42px;
+    }
+
+    .hello {
+        font-size: 35px;
+        line-height: 43px;
+    }
+
+    .myName,
+    .letterA {
+        font-size: 44px;
+        line-height: 52.8px;
+    }
+
+    .myProfession {
+        font-size: 35px;
+        line-height: 42px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .letterH {
+        font-size: 55px;
+        line-height: 64.9px;
+    }
+
+    .hello {
+        font-size: 55px;
+        line-height: 66px;
+    }
+
+    .myName,
+    .letterA {
+        font-size: 64px;
+        line-height: 76.8px;
+    }
+
+    .myProfession {
+        font-size: 55px;
+        line-height: 64.9px;
+        margin-left: 1rem;
+    }
+}

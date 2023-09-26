@@ -1,0 +1,22 @@
+@media screen and (min-width: 0px) {
+    @keyframes scrollReverse {
+        from {
+            transform: translateX(calc(-100% - var(--marqueeGap)));
+        }
+
+        to {
+            transform: translateX(0);
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+
+    .crossLeft {
+        transform: rotate(5deg);
+    }
+
+    .crossRight {
+        transform: rotate(-5deg);
+    }
+}

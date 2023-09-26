@@ -1,0 +1,35 @@
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: var(--pagePadding);
+  height: 100%;
+  background-color: #000000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  --cardPadding: 2rem;
+  --navHeight: 4rem;
+  --marqueeGap: 3.75rem;
+}
+
+@media screen and (min-width: 0px) {
+  html {
+    --pagePadding: 1.25rem;
+    --flexGap: 1.25rem;
+    --sectionMargin: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  html {
+    --pagePadding: 2.5rem;
+    --flexGap: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    --pagePadding: 3.75rem;
+    --flexGap: 3.75rem;
+    --sectionMargin: 3.75rem;
+  }
+}
