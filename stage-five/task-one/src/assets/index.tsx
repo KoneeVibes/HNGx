@@ -1,0 +1,16 @@
+export { ReactComponent as Logo } from "./logo.svg";
+export { ReactComponent as Arrow } from "./arrow.svg";
+export { ReactComponent as HeroLB } from "./hero-left-bottom.svg";
+export { ReactComponent as HeroLT } from "./hero-left-top.svg";
+export { ReactComponent as HeroRight } from "./hero-right.svg";
+export { ReactComponent as HeroLBBg } from "./hero-left-bottom-bg.svg";
+export { ReactComponent as HeroRightBg } from "./hero-right-bg.svg";
+export { ReactComponent as VideoRepository } from "./videoRepository.svg";
+export { ReactComponent as RecordingIcon } from "./recordingIcon.svg";
+export { ReactComponent as ShareIcon } from "./shareIcon.svg";
+export { ReactComponent as RevisitIcon } from "./revisitIcon.svg";
+export { ReactComponent as NumberOneIcon } from "./numberOneIcon.svg";
+export { ReactComponent as NumberTwoIcon } from "./numberTwoIcon.svg";
+export { ReactComponent as NumberThreeIcon } from "./numberThreeIcon.svg";
+export { ReactComponent as DemoImage } from "./howItWorks.svg";
+export { ReactComponent as FooterLogo } from "./footerLogo.svg";
