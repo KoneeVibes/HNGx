@@ -119,8 +119,8 @@ export const Form: React.FC<{}> = () => {
                     Start Recording
                 </Typography>
             </Button>
-            <Button onClick={startRecording}>Start Recording</Button>
-            <Button onClick={stopRecording}>Stop Recording</Button>
+            {/* <Button onClick={startRecording}>Start Recording</Button>
+            <Button onClick={stopRecording}>Stop Recording</Button> */}
         </Stack>
     )
 }
