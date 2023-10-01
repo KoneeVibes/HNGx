@@ -1,8 +1,13 @@
 import { Stack, Button, Typography } from "@mui/material";
 import { SwitchButton } from "./switch";
 import { MicrophoneIcon, VideoCameraIcon } from "../assets";
+import { Context } from "../context";
+import { useContext } from 'react'
 
 export const Form: React.FC<{}> = () => {
+
+    const { setClosePopup } = useContext(Context)
+
     return (
         <Stack
             gap={"2rem"}
@@ -16,6 +21,7 @@ export const Form: React.FC<{}> = () => {
                 Icon={VideoCameraIcon}
             />
             <Button
+                onClick={() => setClosePopup(true)}
                 sx={{
                     padding: "16px",
                     borderRadius: "var(--Inner-Radius, 12px)",

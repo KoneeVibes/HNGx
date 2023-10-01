@@ -1,11 +1,17 @@
+/*global chrome*/
 import { Box, Stack, IconButton } from "@mui/material"
 import { CloseIcon, Logo, SettingsIcon } from "../assets"
-import { Context } from "../context";
-import { useContext } from "react";
 
-export const Nav: React.FC<{}> = () => {
-
-    const { setClosePopup } = useContext(Context)
+export const Nav = () => {
+    const closePopup = () => {
+        chrome.runtime.sendMessage({ type: 'close_popup' })
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err)
+            });
+    }
 
     return (
         <Box
@@ -22,7 +28,7 @@ export const Nav: React.FC<{}> = () => {
                 </IconButton>
                 <IconButton
                     aria-label="close-icon"
-                    onClick={() => setClosePopup(true)}
+                    onClick={() => closePopup}
                 >
                     <CloseIcon />
                 </IconButton>
