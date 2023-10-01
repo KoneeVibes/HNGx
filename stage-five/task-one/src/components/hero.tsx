@@ -1,12 +1,14 @@
 import React from "react";
 import { Box, Stack, Typography, Button, useMediaQuery } from "@mui/material";
 import { Arrow, HeroLB, HeroLBBg, HeroLT, HeroRight, HeroRightBg } from "../assets";
+import { useNavigate } from "react-router-dom";
 
 export const Hero: React.FC<{}> = () => {
 
     const matches = useMediaQuery('(max-width:1290px)');
     const belowDesktop = useMediaQuery('(max-width: 1200px)');
     const belowTablet = useMediaQuery('(max-width: 768px)');
+    const navigate = useNavigate();
 
     return (
         <Box
@@ -68,6 +70,7 @@ export const Hero: React.FC<{}> = () => {
                             backgroundColor: "var(--primary-main, #120B48)",
                         }
                     }}
+                    onClick={() => navigate("https://github.com/KoneeVibes/HNGx/tree/main/stage-five/screen-recorder")}
                 >
                     <Typography
                         variant="subtitle1"
